@@ -1,0 +1,5 @@
+- [:success, :waring, :error, :info].each do |key|
+  - unless flash[key].blank?
+    %div{ :class => "alert-message #{key}"}
+      = link_to 'x', 'javascript:void(0)', :class => 'close'
+      %p= flash[key]

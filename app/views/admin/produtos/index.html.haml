@@ -1,0 +1,25 @@
+%h1 Produtos
+
+%p= link_to 'Novo produto', new_admin_produto_url
+
+= will_paginate @produtos
+
+%table
+  %thead
+    %tr
+      %th Nome
+      %th Categoria
+      %th Preço
+  %tbody
+    - @produtos.each do |produto|
+      %tr
+        %td= produto.nome
+        %td
+          - if produto.categoria
+            = produto.categoria.nome
+          - else
+            == falta_definir_categoria
+        %td= number_to_currency produto.preco
+        %td= link_to 'Editar', edit_admin_produto_url( produto )
+
+= will_paginate @produtos

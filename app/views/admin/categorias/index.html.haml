@@ -1,0 +1,16 @@
+%h1 Lista de Categorias
+
+%p= link_to 'Nova Categoria', new_admin_categoria_url
+
+= will_paginate @categorias
+
+%table
+  %thead
+    %tr
+      %td Nome
+  %tbody
+    - @categorias.each do |categoria|
+      %tr
+        %td= link_to categoria.nome, edit_admin_categoria_url(categoria)
+
+= will_paginate @categorias

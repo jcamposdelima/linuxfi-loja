@@ -1,0 +1,25 @@
+<h1> <%= t('produtos.index.titulo') %> </h1>
+<table class="zebra-striped">
+  <thead>
+  <tr>
+    <th>Nome</th>
+    <th>Preço</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @produtos.each do |produto| %>
+      <tr>
+        <td><%= link_to produto.nome, produto_url(produto) %></td>
+        <td><%= number_to_currency produto.preco %></td>
+        <td>
+          <%= form_tag itens_url do %>
+              <%= hidden_field_tag :produto_id, produto.id %>
+              <%= text_field_tag :quantidade, 1 %>
+              <%= submit_tag 'Adicionar', :class => 'btn_primary' %>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= will_paginate @produtos%>

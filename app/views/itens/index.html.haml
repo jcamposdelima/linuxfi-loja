@@ -1,0 +1,19 @@
+%h1 Meus Produtos
+
+
+= form_tag atualizar_quantidades_itens_url, :method => :put do
+  %table.zebra-striped#pedido
+    %thead
+      %tr
+        %th Nome
+        %th Quantidade
+        %th Preco Unitario
+        %th Preco Total
+      %tbody
+        - pedido_atual.itens.each do |item|
+          = render 'item', :item => item, :pedido => pedido_atual
+      %tfoot
+        %tr
+          %td{ :colspan => 2 }
+          %td Preco Total
+          %td= number_to_currency pedido_atual.preco_total

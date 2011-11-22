@@ -1,0 +1,43 @@
+!!! 5
+%html
+  %head
+    %title Loja
+  = stylesheet_link_tag "application"
+  = javascript_include_tag "application"
+  = csrf_meta_tags
+  %body
+    .topbar-wrapper{ :style =>"z-index: 5;" }
+      .topbar
+        .topbar-inner
+          .container
+            %h3= link_to 'Minha Loja', root_url
+            %ul.nav.secondary-nav
+              - if logged_in?
+                %li== Seja bem vindo #{usuario_atual.nome}
+                %li= link_to 'Logoff', session_url, :method => :delete, :confirm => 'Tem certeza ?'
+              - else
+                %li= link_to 'Crie sua Conta', new_usuario_url
+                %li= link_to 'Faça seu Login', new_session_url
+              - unless pedido_atual.itens.blank?
+                %li= link_to 'Veja o seu carrinho', itens_path
+  .container
+    = render 'compartilhados/mostrar_flash'
+    = yield
+
+
+.pagination
+  %ul
+    %li.prev.disabled
+      %a{:href => "#"} ← Previous
+    %li.active
+      %a{:href => "#"} 1
+    %li
+      %a{:href => "#"} 2
+    %li
+      %a{:href => "#"} 3
+    %li
+      %a{:href => "#"} 4
+    %li
+      %a{:href => "#"} 5
+    %li.next
+      %a{:href => "#"} Next →

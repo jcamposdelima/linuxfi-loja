@@ -1,0 +1,25 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  formularios:
+    criar_atualizar: 'Create/Update %{tipo}'
+  produtos:
+    index:
+      titulo: Products List
+  activerecord:
+    models:
+      produto:
+        one: Product
+        other: Products
+      categoria:
+        one: Category
+        other: Categories
+    attributes:
+      produto:
+        preco: Price
+        nome: Name
+        descricao: Description
+      categoria:
+        nome: Name
+        descricao: Description

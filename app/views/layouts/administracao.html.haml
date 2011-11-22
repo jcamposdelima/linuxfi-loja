@@ -1,0 +1,23 @@
+!!! 5
+%html
+  %head
+    %title Loja - Administração
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .topbar-wrapper{ :style => 'z-index: 5;' }
+      .topbar{ :'data-dropdown' => 'dropdown' }
+        .topbar-inner
+          .container
+            %h3= link_to 'Administração', admin_produtos_url
+            %ul.nav
+              %li.dropdown
+                = link_to 'Línguas', 'javascript:void(0)', :class => 'dropdown-toggle'
+                %ul.dropdown-menu
+                  %li= link_to 'Português', linguas_path( :lang => 'pt-BR' )
+                  %li= link_to 'English', linguas_path( :lang => 'en' )
+
+    .container
+      = render 'compartilhados/mostrar_flash'
+      = yield

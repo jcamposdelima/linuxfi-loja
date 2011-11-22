@@ -1,0 +1,26 @@
+"pt-BR":
+  will_paginate:
+    previous_label: "&#8592; Anterior"
+    next_label: "Próximo &#8594"
+    page_gap: "&hellip;"
+  formularios:
+    criar_atualizar: "Criar/Atualizar %{tipo}"
+  produtos:
+    index:
+      titulo: Listagem de Produtos
+  activerecord:
+    models:
+      produto:
+        one: Produto
+        other: Produtos
+      categoria:
+        one: Categoria
+        other: Categorias
+    attributes:
+      produto:
+        preco: Preço
+        nome: Nome
+        descricao: Descrição
+      categoria:
+        nome: Nome
+        descricao: Descrição
